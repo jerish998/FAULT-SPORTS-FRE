@@ -27,3 +27,6 @@ npm run dev
 npm run lint
 ## for preview
 npm run preview
+
+## sport data backend dummy 
+https://www.thesportsdb.com/documentation
