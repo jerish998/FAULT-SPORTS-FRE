@@ -2,11 +2,8 @@ import { useState } from 'react'
 import './Login.css'
 
 function Login() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  })
-  const [submitted, setSubmitted] = useState(false)
+  const [formData, setFormData] = useState({email: '',password: '' });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target
