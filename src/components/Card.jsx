@@ -11,8 +11,7 @@ function Card({ title, description, image, buttonText }) {
         />
       )}
 
-      <div className="card-content">
-        <h2>{title}</h2>
+      <div className="card-content"><h2>{title}</h2>
 
         <p>{description}</p>
 
