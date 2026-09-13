@@ -1,9 +1,9 @@
 import './Card.css';
 
 function Card({ type, title, description, image, data, buttonText }) {
- if (type == image) {
+ if (type == 'image') {
     return (
-      <div className="card-container image-card">
+      <div className="card-container image-card ">
         <img
           src={image}
           alt={title}

@@ -33,32 +33,37 @@ function Home() {
 
 
   return (
-    <div className='home'>
+    <div className='container'>
       <h1>Welcome to the Home Page</h1>
 
-<Card
+{/* <div className="row">
+  <div className="col-12">
+    <Card
 type='data'
     title="Football"
     description="Latest football matches and updates."
-    buttonText="View Matches"
+   
   />
-
-  <Card
+   <Card
   type='data'
     title="Cricket"
     description="Latest cricket matches and scores."
-    buttonText="View Matches"
+    
   />
 
-  <Card
-  type='data'
-    title="Basketball"
-    description="Latest basketball matches and updates."
-    buttonText="View Matches"
-  />
-////////////////////////////////
-<div className="home-page">
+  </div>
+</div> */}
+
+
+
+ 
+  
+<div className="container">
+  <div className="row g-4">
+    
+
       {teams.map((team) => (
+        <div className='col-12 col-sm-6 col-md-4 col-lg-3'>
         <Card
          type='image'
           key={team.idTeam}
@@ -67,8 +72,13 @@ type='data'
           image={team.strBadge}
           buttonText="View Team"
         />
+        </div>
       ))}
-    </div>
+    
+   
+  </div>
+</div>
+
 ////////////////////////////////
 
       <p>This is the main landing page of your application.</p>
