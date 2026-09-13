@@ -1,34 +1,54 @@
 .navbar {
-  width: 100%;
-  height: 70px;
-  background-color: white;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
-  box-sizing: border-box;
-  border-bottom: 1px solid #e5e5e5;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #111;
+  color: white;
+
+  /* Animation when navbar loads */
+  animation: slideDown 0.6s ease-out;
 }
 
-.navbar-logo a {
-  color: #111;
-  text-decoration: none;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.navbar-links {
+.nav-links {
   display: flex;
   gap: 30px;
+  list-style: none;
 }
 
-.navbar-links a {
-  color: #333;
+.nav-links a {
+  position: relative;
+  color: white;
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
 }
 
-.navbar-links a:hover {
-  color: #007bff;
+/* Hover animation */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+
+  width: 0;
+  height: 2px;
+  background-color: #00ff88;
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Navbar entrance animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import Card from './Card';
-import { getPremierLeagueTeams } from '../api/sportsApi';
+import Card from '../../components/Card/Card';
+import { getPremierLeagueTeams } from '../../api/sportsApi';
 
 function Home() {
     const [teams, setTeams] = useState([]);
@@ -33,22 +33,25 @@ function Home() {
 
 
   return (
-    <div>
+    <div className='home'>
       <h1>Welcome to the Home Page</h1>
 
 <Card
+type='data'
     title="Football"
     description="Latest football matches and updates."
     buttonText="View Matches"
   />
 
   <Card
+  type='data'
     title="Cricket"
     description="Latest cricket matches and scores."
     buttonText="View Matches"
   />
 
   <Card
+  type='data'
     title="Basketball"
     description="Latest basketball matches and updates."
     buttonText="View Matches"
@@ -57,6 +60,7 @@ function Home() {
 <div className="home-page">
       {teams.map((team) => (
         <Card
+         type='image'
           key={team.idTeam}
           title={team.strTeam}
           description={team.strLeague}
