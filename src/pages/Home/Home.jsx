@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
-import { getPremierLeagueTeams } from '../../api/sportsApi';
+import { getPremierLeagueTeams, getAllSports } from '../../api/sportsApi';
 
 function Home() {
     const [teams, setTeams] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [sports, setSports] = useState([]);
 
     useEffect(() => {
     async function loadTeams() {
@@ -24,6 +25,21 @@ function Home() {
     loadTeams();
   }, []);
 
+  useEffect(() => {
+    async function loadAllSports() {
+      try {
+        const data = await getAllSports();
+        setSports(data);
+      } catch (err) {
+        setError('Failed to load sports');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadAllSports();
+  }, []);
+
    if (loading) {
     return <div className="home-page">Loading...</div>;
   }
@@ -36,32 +52,47 @@ function Home() {
     <div className='container'>
       <h1>Welcome to the Home Page</h1>
 
-{/* <div className="row">
-  <div className="col-12">
-    <Card
-type='data'
-    title="Football"
-    description="Latest football matches and updates."
-   
-  />
-   <Card
-  type='data'
-    title="Cricket"
-    description="Latest cricket matches and scores."
-    
-  />
+
+<div className="container">
+  <div className="row g-4">
+
+  
+  {sports.map((sport) => (
+          <div
+            className="col-12 col-sm-6 col-md-4 col-lg-3"
+            key={sport.idSport}
+          >
+            <div className="card h-100">
+
+              <img
+                src={sport.strSportThumb}
+                alt={sport.strSport}
+                className="card-image"
+              />
+
+              <div className="card-body">
+                <h3>{sport.strSport}</h3>
+
+                <p>
+                  <strong>Format:</strong> {sport.strFormat}
+                </p>
+
+                
+              </div>
+
+            </div>
+          </div>
+        ))}
 
   </div>
-</div> */}
-
-
+  </div>
+  
+  
 
  
   
 <div className="container">
   <div className="row g-4">
-    
-
       {teams.map((team) => (
         <div className='col-12 col-sm-6 col-md-4 col-lg-3'>
         <Card

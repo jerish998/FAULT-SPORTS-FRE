@@ -25,7 +25,7 @@ function Card({ type, title, description, image, data, buttonText }) {
   }
   if(type == 'data'){
 return (
-    <div className="card-container">
+    <div className="card-container image-card">
       {image && (
         <img src={image}
           alt={title}
