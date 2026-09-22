@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Card from '../../components/Card/Card';
 import { getPremierLeagueTeams, getAllSports } from '../../api/sportsApi';
+import { getAllSports as getAllSportsFromService } from '../../services/allSportsListService.js';
 
 function Home() {
     const [teams, setTeams] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [sports, setSports] = useState([]);
+    const [sportsListFromService, setSportsListFromService] = useState([]);
 
     useEffect(() => {
     async function loadTeams() {
@@ -40,6 +42,22 @@ function Home() {
     loadAllSports();
   }, []);
 
+  useEffect(() => {
+    async function loadAllSportsFromService() {
+      try {
+        const data = await getAllSportsFromService();
+        setSportsListFromService(data);
+      } catch (err) {
+        setError('Failed to load sports from service');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadAllSportsFromService();
+  }, []);
+
+
    if (loading) {
     return <div className="home-page">Loading...</div>;
   }
@@ -57,7 +75,7 @@ function Home() {
   <div className="row g-4">
 
   
-  {sports.map((sport) => (
+  {sportsListFromService.map((sport) => (
           <div
             className="col-12 col-sm-6 col-md-4 col-lg-3"
             key={sport.idSport}
