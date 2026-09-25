@@ -9,6 +9,7 @@ function Home() {
     const [teams, setTeams] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    //need to remove this state and use the service instead
     const [sports, setSports] = useState([]);
     const [sportsListFromService, setSportsListFromService] = useState([]);
 

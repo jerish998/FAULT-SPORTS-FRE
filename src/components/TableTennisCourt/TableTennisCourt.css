@@ -1,0 +1,350 @@
+.table-tennis-page {
+  min-height: 100vh;
+  padding: 50px 20px;
+
+  background: #f8fafc;
+
+  color: #1f2937;
+}
+
+/* Header */
+
+.table-tennis-header {
+  text-align: center;
+
+  margin-bottom: 45px;
+}
+
+.table-tennis-badge {
+  display: inline-block;
+
+  padding: 7px 15px;
+
+  margin-bottom: 12px;
+
+  border-radius: 999px;
+
+  background: #dbeafe;
+  color: #1d4ed8;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.table-tennis-header h1 {
+  margin: 0 0 10px;
+
+  font-size: 38px;
+}
+
+.table-tennis-header p {
+  margin: 0;
+
+  color: #64748b;
+}
+
+/* Table wrapper */
+
+.table-wrapper {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+/* Table */
+
+.table-tennis-table {
+  position: relative;
+
+  width: min(850px, 92vw);
+
+  aspect-ratio: 2 / 1;
+
+  background: #1d4ed8;
+
+  border: 8px solid #111827;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.18);
+
+  overflow: visible;
+}
+
+/* White table boundary */
+
+.table-border {
+  position: absolute;
+
+  inset: 3%;
+
+  border: 3px solid white;
+
+  pointer-events: none;
+}
+
+/* Center line */
+
+.table-center-line {
+  position: absolute;
+
+  top: 3%;
+  bottom: 3%;
+
+  left: 50%;
+
+  width: 3px;
+
+  background: white;
+
+  transform: translateX(-50%);
+}
+
+/* Net */
+
+.table-net {
+  position: absolute;
+
+  top: -18px;
+
+  bottom: -18px;
+
+  left: 50%;
+
+  width: 7px;
+
+  transform: translateX(-50%);
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #111827 0px,
+      #111827 3px,
+      #e5e7eb 3px,
+      #e5e7eb 7px
+    );
+
+  z-index: 10;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.table-net span {
+  position: absolute;
+
+  padding: 5px 7px;
+
+  background: #111827;
+
+  color: white;
+
+  border-radius: 4px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  writing-mode: vertical-rl;
+}
+
+/* Net posts */
+
+.table-net-post {
+  position: absolute;
+
+  top: 50%;
+
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+
+  background: #111827;
+
+  transform: translateY(-50%);
+
+  z-index: 20;
+}
+
+.left-net-post {
+  left: calc(50% - 16px);
+}
+
+.right-net-post {
+  right: calc(50% - 16px);
+}
+
+/* Player areas */
+
+.table-area {
+  position: absolute;
+
+  top: 8%;
+  bottom: 8%;
+
+  width: 40%;
+
+  border: none;
+
+  background: transparent;
+
+  color: transparent;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.table-area:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  color: white;
+}
+
+.table-area span {
+  padding: 8px 14px;
+
+  border-radius: 6px;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.player-one {
+  left: 5%;
+}
+
+.player-two {
+  right: 5%;
+}
+
+/* Center marks */
+
+.center-mark {
+  position: absolute;
+
+  left: 50%;
+
+  width: 4px;
+  height: 25px;
+
+  background: white;
+
+  transform: translateX(-50%);
+}
+
+.top-mark {
+  top: 3%;
+}
+
+.bottom-mark {
+  bottom: 3%;
+}
+
+/* Info */
+
+.table-info {
+  margin-top: 35px;
+
+  text-align: center;
+
+  color: #64748b;
+}
+
+.table-info strong {
+  color: #111827;
+}
+
+/* Game info */
+
+.game-info {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  width: min(700px, 90%);
+
+  margin: 35px auto 0;
+
+  padding: 20px;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 12px;
+
+  background: white;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.game-info div {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.game-info span {
+  color: #94a3b8;
+
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+.game-info strong {
+  font-size: 15px;
+}
+
+.game-info .available {
+  color: #16a34a;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .table-tennis-page {
+    padding: 30px 10px;
+  }
+
+  .table-tennis-header h1 {
+    font-size: 30px;
+  }
+
+  .table-tennis-table {
+    width: 96vw;
+
+    border-width: 5px;
+  }
+
+  .table-area span {
+    padding: 6px 9px;
+
+    font-size: 11px;
+  }
+
+  .game-info {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+}

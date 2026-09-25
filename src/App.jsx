@@ -9,7 +9,12 @@ import Contact from './pages/Contact/Contact';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 import './App.css';
-
+//need to visualize the court 
+import Badmintoncourt from './components/BadmintonCourt/BadmintonCourt';
+import TableTennisCourt from './components/TableTennisCourt/TableTennisCourt';
+import TennisCourt from './components/TennisCourt/TennisCourt';
+import BasketballCourt from './components/BasketballCourt/BasketballCourt';
+import SwimmingPool from './components/SwimmingPool/SwimmingPool';
 
 function App() {
   return (
@@ -21,7 +26,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
-          
+          <Route path="/Badmintoncourt" element={<Badmintoncourt />} />
+          <Route path="/TableTennisCourt" element={<TableTennisCourt />} />
+          <Route path="/TennisCourt" element={<TennisCourt />} />
+          <Route path="/BasketballCourt" element={<BasketballCourt />} />
+          <Route path="/SwimmingPool" element={<SwimmingPool />} />
 {/* Must be last */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>

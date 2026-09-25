@@ -1,0 +1,328 @@
+
+.badminton-page {
+  min-height: 100vh;
+  padding: 50px 20px;
+  background: #f8fafc;
+  color: #1f2937;
+}
+
+.court-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.court-header h1 {
+  margin-bottom: 8px;
+  font-size: 36px;
+}
+
+.court-header p {
+  color: #64748b;
+}
+
+/* Court container */
+
+.court-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main court */
+
+.court {
+  position: relative;
+
+  width: min(850px, 90vw);
+  aspect-ratio: 2 / 1;
+
+  background: #15803d;
+
+  border: 5px solid white;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.15);
+
+  overflow: hidden;
+}
+
+/* Outer court lines */
+
+.court::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 25px;
+
+  border: 3px solid white;
+
+  pointer-events: none;
+}
+
+/* Center line */
+
+.center-line {
+  position: absolute;
+
+  top: 25px;
+  bottom: 25px;
+
+  left: 50%;
+
+  width: 3px;
+
+  background: white;
+
+  transform: translateX(-50%);
+}
+
+/* Short service lines */
+
+.short-service-line {
+  position: absolute;
+
+  top: 25px;
+  bottom: 25px;
+
+  left: 32%;
+
+  width: 3px;
+
+  background: white;
+}
+
+.short-service-line::after {
+  content: "";
+
+  position: absolute;
+
+  left: calc(200% - 3px);
+
+  top: 0;
+
+  bottom: 0;
+
+  width: 3px;
+
+  background: white;
+}
+
+/* Long service lines */
+
+.long-service-line {
+  position: absolute;
+
+  top: 25px;
+  bottom: 25px;
+
+  left: 16%;
+
+  width: 3px;
+
+  background: white;
+}
+
+.long-service-line::after {
+  content: "";
+
+  position: absolute;
+
+  left: calc(425% - 3px);
+
+  top: 0;
+
+  bottom: 0;
+
+  width: 3px;
+
+  background: white;
+}
+
+/* Singles sidelines */
+
+.singles-line {
+  position: absolute;
+
+  top: 25px;
+  bottom: 25px;
+
+  width: 3px;
+
+  background: white;
+}
+
+.left-single-line {
+  left: 8%;
+}
+
+.right-single-line {
+  right: 8%;
+}
+
+/* Net */
+
+.net {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 7px;
+
+  transform: translateX(-50%);
+
+  background: repeating-linear-gradient(
+    to bottom,
+    #111827 0px,
+    #111827 4px,
+    #e5e7eb 4px,
+    #e5e7eb 8px
+  );
+
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.net span {
+  position: absolute;
+
+  padding: 5px 8px;
+
+  background: #111827;
+  color: white;
+
+  font-size: 11px;
+  font-weight: bold;
+
+  writing-mode: vertical-rl;
+
+  border-radius: 4px;
+}
+
+/* Net posts */
+
+.net-post {
+  position: absolute;
+
+  top: 50%;
+
+  width: 14px;
+  height: 14px;
+
+  background: #111827;
+
+  border-radius: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 10;
+}
+
+.left-post {
+  left: calc(50% - 14px);
+}
+
+.right-post {
+  right: calc(50% - 14px);
+}
+
+/* Clickable areas */
+
+.court-area {
+  position: absolute;
+
+  top: 29px;
+  bottom: 29px;
+
+  width: 25%;
+
+  border: none;
+
+  background: transparent;
+
+  color: transparent;
+
+  cursor: pointer;
+
+  z-index: 2;
+
+  transition: background 0.2s ease;
+}
+
+.court-area:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  color: white;
+}
+
+.court-area span {
+  padding: 8px 15px;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  border-radius: 6px;
+
+  font-size: 14px;
+}
+
+.left-area {
+  left: 8%;
+}
+
+.right-area {
+  right: 8%;
+}
+
+/* Information */
+
+.court-info {
+  margin-top: 30px;
+
+  text-align: center;
+
+  font-size: 16px;
+
+  color: #475569;
+}
+
+.court-info strong {
+  color: #111827;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+  .badminton-page {
+    padding: 30px 10px;
+  }
+
+  .court-header h1 {
+    font-size: 28px;
+  }
+
+  .court {
+    width: 95vw;
+  }
+
+  .court::before {
+    inset: 15px;
+  }
+
+  .center-line {
+    top: 15px;
+    bottom: 15px;
+  }
+
+  .short-service-line,
+  .long-service-line,
+  .singles-line {
+    top: 15px;
+    bottom: 15px;
+  }
+}
