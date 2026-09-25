@@ -15,6 +15,8 @@ import TableTennisCourt from './components/TableTennisCourt/TableTennisCourt';
 import TennisCourt from './components/TennisCourt/TennisCourt';
 import BasketballCourt from './components/BasketballCourt/BasketballCourt';
 import SwimmingPool from './components/SwimmingPool/SwimmingPool';
+import VolleyballCourt from './components/VolleyballCourt/VolleyballCourt';
+import FootballCourt from './components/FootballCourt/FootballCourt';
 
 function App() {
   return (
@@ -26,11 +28,15 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
+//need to remove when functionality is completed
+
           <Route path="/Badmintoncourt" element={<Badmintoncourt />} />
           <Route path="/TableTennisCourt" element={<TableTennisCourt />} />
           <Route path="/TennisCourt" element={<TennisCourt />} />
           <Route path="/BasketballCourt" element={<BasketballCourt />} />
           <Route path="/SwimmingPool" element={<SwimmingPool />} />
+          <Route path="/VolleyballCourt" element={<VolleyballCourt />} />
+          <Route path="/FootballCourt" element={<FootballCourt />} />
 {/* Must be last */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
