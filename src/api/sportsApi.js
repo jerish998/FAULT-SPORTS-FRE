@@ -14,3 +14,16 @@ export async function getPremierLeagueTeams() {
 
   return data.teams || [];
 }
+export async function getAllSports() {
+  const url =`${BASE_URL}/${API_KEY}/all_sports.php`;
+  const url2 = "https://www.thesportsdb.com/api/v1/json/123/all_sports.php"
+ const response = await fetch(url2);
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch sports data');
+  }
+
+  const data = await response.json();
+
+  return data.sports || [];
+}

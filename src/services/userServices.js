@@ -1,4 +1,4 @@
-const API_URL = "https://api.example.com/users";
+const API_URL = "https://api.faultsports.com/users";
 
 export async function getUsers() {
     const response = await fetch(API_URL);
