@@ -10,18 +10,33 @@ const BadmintonCourt = () => {
 
   return (
     <div className="badminton-page">
+
       <div className="court-header">
         <h1>Badminton Court</h1>
-        <p>Select an area of the court</p>
       </div>
 
       <div className="court-wrapper">
         <div className="court">
 
-          {/* Back boundary */}
-          <div className="court-back-line" />
+          {/* Outer court */}
+          <div className="court-lines"></div>
 
-          {/* Left service area */}
+          {/* Singles sidelines */}
+          <div className="singles-line left-single-line"></div>
+          <div className="singles-line right-single-line"></div>
+
+          {/* Long service lines */}
+ 
+
+          {/* Short service lines */}
+          <div className="short-service-line left-short-service"></div>
+          <div className="short-service-line right-short-service"></div>
+
+          {/* Middle / service dividing lines */}
+          <div className="middle-line left-middle-line"></div>
+          <div className="middle-line right-middle-line"></div>
+
+          {/* Clickable areas */}
           <button
             className="court-area left-area"
             onClick={() => handleCourtClick("Left Service Area")}
@@ -29,7 +44,6 @@ const BadmintonCourt = () => {
             <span>Left</span>
           </button>
 
-          {/* Right service area */}
           <button
             className="court-area right-area"
             onClick={() => handleCourtClick("Right Service Area")}
@@ -37,27 +51,13 @@ const BadmintonCourt = () => {
             <span>Right</span>
           </button>
 
-          {/* Center line */}
-          <div className="center-line" />
-
-          {/* Short service line */}
-          <div className="short-service-line" />
-
           {/* Net */}
-          <div className="net">
-            <span>NET</span>
-          </div>
+          <div className="net"></div>
 
-          {/* Long service line */}
-          <div className="long-service-line" />
+          {/* Net posts */}
+          <div className="net-post left-post"></div>
+          <div className="net-post right-post"></div>
 
-          {/* Court posts */}
-          <div className="net-post left-post" />
-          <div className="net-post right-post" />
-
-          {/* Singles sidelines */}
-          <div className="singles-line left-single-line" />
-          <div className="singles-line right-single-line" />
         </div>
       </div>
 
@@ -70,6 +70,7 @@ const BadmintonCourt = () => {
           <p>Select an area on the court</p>
         )}
       </div>
+
     </div>
   );
 };

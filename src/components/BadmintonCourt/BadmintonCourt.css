@@ -1,4 +1,3 @@
-
 .badminton-page {
   min-height: 100vh;
   padding: 50px 20px;
@@ -12,16 +11,11 @@
 }
 
 .court-header h1 {
-  margin-bottom: 8px;
+  margin: 0;
   font-size: 36px;
 }
 
-.court-header p {
-  color: #64748b;
-}
-
-/* Court container */
-
+/* Court wrapper */
 .court-wrapper {
   display: flex;
   justify-content: center;
@@ -29,10 +23,8 @@
 }
 
 /* Main court */
-
 .court {
   position: relative;
-
   width: min(850px, 90vw);
   aspect-ratio: 2 / 1;
 
@@ -40,116 +32,40 @@
 
   border: 5px solid white;
 
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 
   overflow: hidden;
 }
 
-/* Outer court lines */
-
-.court::before {
-  content: "";
-
+/* Outer playing boundary */
+.court-lines {
   position: absolute;
-
-  inset: 25px;
+  top: 15px;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
 
   border: 3px solid white;
 
   pointer-events: none;
 }
 
-/* Center line */
 
-.center-line {
-  position: absolute;
-
-  top: 25px;
-  bottom: 25px;
-
-  left: 50%;
-
-  width: 3px;
-
-  background: white;
-
-  transform: translateX(-50%);
-}
-
-/* Short service lines */
-
-.short-service-line {
-  position: absolute;
-
-  top: 25px;
-  bottom: 25px;
-
-  left: 32%;
-
-  width: 3px;
-
-  background: white;
-}
-
-.short-service-line::after {
-  content: "";
-
-  position: absolute;
-
-  left: calc(200% - 3px);
-
-  top: 0;
-
-  bottom: 0;
-
-  width: 3px;
-
-  background: white;
-}
-
-/* Long service lines */
-
-.long-service-line {
-  position: absolute;
-
-  top: 25px;
-  bottom: 25px;
-
-  left: 16%;
-
-  width: 3px;
-
-  background: white;
-}
-
-.long-service-line::after {
-  content: "";
-
-  position: absolute;
-
-  left: calc(425% - 3px);
-
-  top: 0;
-
-  bottom: 0;
-
-  width: 3px;
-
-  background: white;
-}
-
-/* Singles sidelines */
+/* =====================================================
+   SINGLES SIDELINES
+   ===================================================== */
 
 .singles-line {
   position: absolute;
 
-  top: 25px;
-  bottom: 25px;
+  top: 15px;
+  bottom: 15px;
 
   width: 3px;
 
   background: white;
+
+  z-index: 1;
 }
 
 .left-single-line {
@@ -160,18 +76,109 @@
   right: 8%;
 }
 
-/* Net */
+
+/* =====================================================
+   LONG SERVICE LINES
+   ===================================================== */
+
+.long-service-line {
+  position: absolute;
+
+  top: 15px;
+  bottom: 15px;
+
+  width: 3px;
+
+  background: white;
+
+  z-index: 1;
+}
+
+/* Left side long service line */
+.left-long-service {
+  left: 16%;
+}
+
+/* Right side long service line */
+.right-long-service {
+  right: 16%;
+}
+
+
+/* =====================================================
+   SHORT SERVICE LINES
+   ===================================================== */
+
+.short-service-line {
+  position: absolute;
+
+  top: 15px;
+  bottom: 15px;
+
+  width: 3px;
+
+  background: white;
+
+  z-index: 1;
+}
+
+/* Left short service line */
+.left-short-service {
+  left: 32%;
+}
+
+/* Right short service line */
+.right-short-service {
+  right: 32%;
+}
+
+
+/* =====================================================
+   MIDDLE / CENTER SERVICE LINES
+   ===================================================== */
+
+/*
+   These are the horizontal lines that divide
+   the left and right service courts.
+*/
+
+.middle-line {
+  position: absolute;
+
+  height: 3px;
+
+  background: white;
+
+  z-index: 1;
+}
+
+/* Left half middle line */
+.left-middle-line {
+    left: 2%;
+    width: 30%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Right half middle line */
+.right-middle-line {
+    right: 2%;
+    width: 30%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* =====================================================
+   NET
+   ===================================================== */
 
 .net {
   position: absolute;
-
   top: 0;
   bottom: 0;
-
   left: 50%;
-
   width: 7px;
-
   transform: translateX(-50%);
 
   background: repeating-linear-gradient(
@@ -183,64 +190,47 @@
   );
 
   z-index: 5;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.net span {
-  position: absolute;
 
-  padding: 5px 8px;
-
-  background: #111827;
-  color: white;
-
-  font-size: 11px;
-  font-weight: bold;
-
-  writing-mode: vertical-rl;
-
-  border-radius: 4px;
-}
-
-/* Net posts */
+/* =====================================================
+   NET POSTS
+   ===================================================== */
 
 .net-post {
   position: absolute;
-
-  top: 50%;
-
   width: 14px;
   height: 14px;
-
   background: #111827;
-
   border-radius: 50%;
-
   transform: translateY(-50%);
-
   z-index: 10;
 }
 
 .left-post {
-  left: calc(50% - 14px);
+    top: 0%;
+    left: calc(50% - 6px);
+    transform: translateX(-50%);
 }
 
 .right-post {
-  right: calc(50% - 14px);
+   top: 94%;
+    right: calc(50% - 6px);
+    transform: translateX(50%);
 }
 
-/* Clickable areas */
+
+/* =====================================================
+   CLICKABLE AREAS
+   ===================================================== */
 
 .court-area {
   position: absolute;
 
-  top: 29px;
-  bottom: 29px;
+  top: 18px;
+  bottom: 18px;
 
-  width: 25%;
+  width: 24%;
 
   border: none;
 
@@ -250,7 +240,7 @@
 
   cursor: pointer;
 
-  z-index: 2;
+  z-index: 3;
 
   transition: background 0.2s ease;
 }
@@ -279,7 +269,10 @@
   right: 8%;
 }
 
-/* Information */
+
+/* =====================================================
+   INFORMATION
+   ===================================================== */
 
 .court-info {
   margin-top: 30px;
@@ -295,9 +288,13 @@
   color: #111827;
 }
 
-/* Responsive */
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
 
 @media (max-width: 700px) {
+
   .badminton-page {
     padding: 30px 10px;
   }
@@ -310,19 +307,17 @@
     width: 95vw;
   }
 
-  .court::before {
-    inset: 15px;
+  .court-lines {
+    top: 10px;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
   }
 
-  .center-line {
-    top: 15px;
-    bottom: 15px;
-  }
-
-  .short-service-line,
+  .singles-line,
   .long-service-line,
-  .singles-line {
-    top: 15px;
-    bottom: 15px;
+  .short-service-line {
+    top: 10px;
+    bottom: 10px;
   }
 }
