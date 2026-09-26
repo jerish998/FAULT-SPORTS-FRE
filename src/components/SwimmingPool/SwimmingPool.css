@@ -1,0 +1,571 @@
+/* ================================
+   PAGE
+================================ */
+
+.swimming-page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.pool-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.pool-header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.pool-header p {
+  margin: 6px 0 0;
+  color: #777;
+}
+
+.selected-lane {
+  padding: 12px 20px;
+  background: #e8f5ff;
+  border-radius: 8px;
+  color: #1769aa;
+}
+
+/* ================================
+   CONTAINER
+================================ */
+
+.pool-container {
+  position: relative;
+  width: 100%;
+  padding: 70px 60px 80px;
+  background: #eeeeee;
+  border-radius: 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* ================================
+   SWIMMING POOL
+================================ */
+
+.swimming-pool {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  background: #16a9df;
+  border: 12px solid #ffffff;
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 2px #bdbdbd,
+    0 8px 20px rgba(0, 0, 0, 0.15);
+
+  overflow: visible;
+}
+
+/* ================================
+   LANES
+================================ */
+
+.lanes {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.swim-lane {
+  position: relative;
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0;
+  border: none;
+  border-bottom: 2px dashed rgba(255, 255, 255, 0.8);
+
+  background: rgba(0, 174, 239, 0.55);
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  overflow: hidden;
+}
+
+.swim-lane:last-child {
+  border-bottom: none;
+}
+
+/* ================================
+   LANE HOVER
+================================ */
+
+.swim-lane:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.swim-lane.selected {
+  background: rgba(255, 193, 7, 0.45);
+
+  box-shadow:
+    inset 0 0 0 4px #ffc107;
+}
+
+/* ================================
+   LANE NUMBER
+================================ */
+
+.lane-number {
+  position: absolute;
+  left: 15px;
+
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+  color: #1769aa;
+
+  border-radius: 50%;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  z-index: 10;
+}
+
+/* ================================
+   LANE WATER
+================================ */
+
+.lane-water {
+  position: absolute;
+  left: 50px;
+  right: 15px;
+  top: 0;
+  bottom: 0;
+}
+
+/* ================================
+   RACING LINE
+================================ */
+
+.racing-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 50%;
+
+  height: 5px;
+
+  transform: translateY(-50%);
+
+  background: #075b8d;
+
+  opacity: 0.8;
+}
+
+/* ================================
+   LANE ROPE
+================================ */
+
+.lane-rope {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 50%;
+
+  height: 8px;
+
+  transform: translateY(-50%);
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #ffffff 0px,
+      #ffffff 7px,
+      #f4c400 7px,
+      #f4c400 14px
+    );
+
+  border-radius: 10px;
+
+  opacity: 0.95;
+}
+
+/* ================================
+   LANE MARKERS
+================================ */
+
+.marker {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 3px;
+
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.marker-left {
+  left: 10%;
+}
+
+.marker-center {
+  left: 50%;
+}
+
+.marker-right {
+  right: 10%;
+}
+
+/* ================================
+   POOL END WALLS
+================================ */
+
+.pool-end-wall {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 10px;
+
+  background: #ffffff;
+
+  z-index: 20;
+}
+
+.pool-left-wall {
+  left: 0;
+}
+
+.pool-right-wall {
+  right: 0;
+}
+
+/* ================================
+   START / TURN LABELS
+================================ */
+
+.pool-label {
+  position: absolute;
+
+  top: -32px;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  color: #555;
+
+  z-index: 30;
+}
+
+.left-label {
+  left: 5px;
+}
+
+.right-label {
+  right: 5px;
+}
+
+/* ================================
+   STARTING BLOCKS
+================================ */
+
+.starting-blocks {
+  position: absolute;
+
+  left: 18px;
+  top: 70px;
+  bottom: 80px;
+
+  width: 40px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+
+  z-index: 50;
+}
+
+.starting-block {
+  width: 34px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #e5e5e5;
+
+  border: 2px solid #777;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  color: #333;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ================================
+   DIMENSIONS
+================================ */
+
+.length-dimension {
+  position: absolute;
+
+  left: 10%;
+  right: 10%;
+
+  bottom: -45px;
+
+  height: 25px;
+
+  border-bottom: 2px solid #555;
+
+  text-align: center;
+}
+
+.length-dimension::before,
+.length-dimension::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: -5px;
+
+  width: 10px;
+  height: 10px;
+
+  border-bottom: 2px solid #555;
+}
+
+.length-dimension::before {
+  left: 0;
+  border-left: 2px solid #555;
+  transform: rotate(45deg);
+}
+
+.length-dimension::after {
+  right: 0;
+  border-right: 2px solid #555;
+  transform: rotate(-45deg);
+}
+
+.length-dimension span {
+  position: relative;
+
+  top: 12px;
+
+  background: #eeeeee;
+
+  padding: 0 10px;
+
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* ================================
+   WIDTH DIMENSION
+================================ */
+
+.width-dimension {
+  position: absolute;
+
+  right: -45px;
+  top: 20%;
+  bottom: 20%;
+
+  width: 25px;
+
+  border-right: 2px solid #555;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.width-dimension span {
+  background: #eeeeee;
+
+  padding: 5px;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  writing-mode: vertical-rl;
+}
+
+/* ================================
+   POOL INFO
+================================ */
+
+.pool-info {
+  position: absolute;
+
+  left: 60px;
+  right: 60px;
+  bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.pool-info div {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.info-title {
+  font-size: 12px;
+  color: #777;
+}
+
+.pool-info strong {
+  margin-top: 3px;
+
+  font-size: 15px;
+  color: #222;
+}
+
+/* ================================
+   BOOKING
+================================ */
+
+.lane-booking {
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 22px;
+
+  background: #f7f7f7;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+}
+
+.lane-booking div {
+  display: flex;
+  flex-direction: column;
+}
+
+.lane-booking span {
+  font-size: 12px;
+  color: #777;
+}
+
+.lane-booking strong {
+  margin-top: 3px;
+  font-size: 18px;
+}
+
+.lane-booking button {
+  padding: 10px 24px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #1769aa;
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.lane-booking button:hover {
+  background: #0d4f82;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+  .swimming-page {
+    padding: 10px;
+  }
+
+  .pool-container {
+    padding: 50px 35px 70px;
+  }
+
+  .starting-blocks {
+    left: 5px;
+    top: 50px;
+    bottom: 70px;
+  }
+
+  .starting-block {
+    width: 25px;
+    height: 22px;
+    font-size: 9px;
+  }
+
+  .lane-number {
+    left: 8px;
+
+    width: 24px;
+    height: 24px;
+
+    font-size: 11px;
+  }
+
+  .lane-water {
+    left: 38px;
+  }
+
+  .pool-info {
+    left: 30px;
+    right: 30px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pool-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .pool-container {
+    overflow-x: auto;
+  }
+
+  .swimming-pool {
+    min-width: 850px;
+  }
+
+  .pool-info {
+    min-width: 850px;
+  }
+}

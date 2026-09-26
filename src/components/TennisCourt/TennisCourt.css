@@ -1,0 +1,323 @@
+
+.tennis-page {
+  min-height: 100vh;
+  padding: 50px 20px;
+  background: #f8fafc;
+  color: #1f2937;
+}
+
+/* Header */
+
+.tennis-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tennis-badge {
+  display: inline-block;
+  padding: 7px 15px;
+  margin-bottom: 12px;
+
+  border-radius: 999px;
+
+  background: #dcfce7;
+  color: #166534;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tennis-header h1 {
+  margin: 0 0 10px;
+
+  font-size: 38px;
+}
+
+.tennis-header p {
+  margin: 0;
+
+  color: #64748b;
+}
+
+/* Court */
+
+.tennis-court-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.tennis-court {
+  position: relative;
+
+  width: min(900px, 92vw);
+  aspect-ratio: 2 / 1;
+
+  background: #16803c;
+
+  border: 5px solid white;
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+
+  overflow: hidden;
+}
+
+/*
+ * Outer court boundary
+ */
+
+.court-boundary {
+  position: absolute;
+
+  inset: 6% 5%;
+
+  border: 3px solid white;
+
+  pointer-events: none;
+}
+
+/*
+ * Singles sidelines
+ */
+
+.singles-left,
+.singles-right {
+  position: absolute;
+
+  top: 6%;
+  bottom: 6%;
+
+  width: 3px;
+
+  background: white;
+}
+
+.singles-left {
+  left: 15%;
+}
+
+.singles-right {
+  right: 15%;
+}
+
+/*
+ * Service lines
+ */
+
+.service-line-left,
+.service-line-right {
+  position: absolute;
+
+  top: 6%;
+  bottom: 6%;
+
+  width: 3px;
+
+  background: white;
+}
+
+.service-line-left {
+  left: 36%;
+}
+
+.service-line-right {
+  right: 36%;
+}
+
+/*
+ * Center service line
+ */
+
+.service-center-line {
+  position: absolute;
+
+  top: 6%;
+  bottom: 6%;
+
+  left: 50%;
+
+  width: 3px;
+
+  background: white;
+
+  transform: translateX(-50%);
+}
+
+/*
+ * Net
+ */
+
+.tennis-net {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 8px;
+
+  transform: translateX(-50%);
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      #111827 0px,
+      #111827 3px,
+      #e5e7eb 3px,
+      #e5e7eb 7px
+    );
+
+  z-index: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tennis-net span {
+  position: absolute;
+
+  padding: 6px 8px;
+
+  background: #111827;
+
+  color: white;
+
+  border-radius: 4px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  writing-mode: vertical-rl;
+}
+
+/*
+ * Net posts
+ */
+
+.tennis-post {
+  position: absolute;
+
+  top: 50%;
+
+  width: 15px;
+  height: 15px;
+
+  border-radius: 50%;
+
+  background: #111827;
+
+  transform: translateY(-50%);
+
+  z-index: 20;
+}
+
+.left-post {
+  left: calc(50% - 15px);
+}
+
+.right-post {
+  right: calc(50% - 15px);
+}
+
+/*
+ * Clickable court areas
+ */
+
+.tennis-area {
+  position: absolute;
+
+  width: 28%;
+  height: 38%;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background: transparent;
+
+  color: transparent;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.tennis-area:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  color: white;
+}
+
+.tennis-area:active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Areas */
+
+.top-left {
+  left: 8%;
+  top: 8%;
+}
+
+.top-right {
+  right: 8%;
+  top: 8%;
+}
+
+.bottom-left {
+  left: 8%;
+  bottom: 8%;
+}
+
+.bottom-right {
+  right: 8%;
+  bottom: 8%;
+}
+
+/*
+ * Selected information
+ */
+
+.tennis-info {
+  margin-top: 30px;
+
+  text-align: center;
+
+  color: #64748b;
+
+  font-size: 16px;
+}
+
+.tennis-info strong {
+  color: #111827;
+}
+
+/*
+ * Responsive
+ */
+
+@media (max-width: 700px) {
+  .tennis-page {
+    padding: 30px 10px;
+  }
+
+  .tennis-header h1 {
+    font-size: 30px;
+  }
+
+  .tennis-court {
+    width: 96vw;
+  }
+
+  .tennis-area {
+    font-size: 11px;
+  }
+}

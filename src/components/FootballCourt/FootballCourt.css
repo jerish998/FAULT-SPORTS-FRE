@@ -1,0 +1,1011 @@
+/* =========================================
+   PAGE
+========================================= */
+
+.football-page {
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 30px auto;
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  font-family: Arial, sans-serif;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.football-header {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 25px;
+}
+
+.football-header h2 {
+  margin: 0;
+
+  font-size: 28px;
+}
+
+.football-header p {
+  margin: 6px 0 0;
+
+  color: #777;
+}
+
+.football-selected {
+  padding: 12px 20px;
+
+  background: #e8f5e9;
+
+  color: #26733a;
+
+  border-radius: 8px;
+}
+
+/* =========================================
+   FIELD CONTAINER
+========================================= */
+
+.football-container {
+  width: 100%;
+
+  padding: 70px 60px;
+
+  box-sizing: border-box;
+
+  background: #eeeeee;
+
+  border-radius: 16px;
+
+  display: flex;
+
+  justify-content: center;
+}
+
+/* =========================================
+   FOOTBALL FIELD
+========================================= */
+
+/*
+   Standard playing field ratio:
+
+   105m × 68m
+
+   ≈ 1.54 : 1
+*/
+
+.football-field {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 105 / 68;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #3b9d42 0px,
+      #3b9d42 60px,
+      #35923b 60px,
+      #35923b 120px
+    );
+
+  border: 4px solid white;
+
+  outline: 3px solid #333;
+
+  overflow: visible;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================
+   FIELD HALVES
+========================================= */
+
+.football-half {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 50%;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+
+  z-index: 2;
+}
+
+.left-half {
+  left: 0;
+}
+
+.right-half {
+  right: 0;
+}
+
+.football-half:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.football-half.selected {
+  background: rgba(255, 193, 7, 0.18);
+
+  box-shadow:
+    inset 0 0 0 4px #ffc107;
+}
+
+/* =========================================
+   HALF LABEL
+========================================= */
+
+.half-label {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  color: rgba(255, 255, 255, 0.25);
+
+  font-size: 22px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   HALFWAY LINE
+========================================= */
+
+.halfway-line {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 3px;
+
+  background: white;
+
+  transform: translateX(-50%);
+
+  z-index: 5;
+}
+
+/* =========================================
+   CENTER CIRCLE
+========================================= */
+
+.center-circle {
+  position: absolute;
+
+  width: 20%;
+
+  aspect-ratio: 1 / 1;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border: 3px solid white;
+
+  border-radius: 50%;
+
+  z-index: 5;
+}
+
+.center-spot {
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+/* =========================================
+   PENALTY AREAS
+========================================= */
+
+.penalty-area {
+  position: absolute;
+
+  top: 25%;
+
+  width: 16%;
+
+  height: 50%;
+
+  border: 3px solid white;
+
+  z-index: 5;
+}
+
+.left-penalty {
+  left: 0;
+
+  border-left: none;
+}
+
+.right-penalty {
+  right: 0;
+
+  border-right: none;
+}
+
+/* =========================================
+   GOAL AREAS
+========================================= */
+
+.goal-area {
+  position: absolute;
+
+  top: 25%;
+
+  width: 40%;
+
+  height: 50%;
+
+  border: 3px solid white;
+}
+
+.left-penalty .goal-area {
+  left: 0;
+
+  border-left: none;
+}
+
+.right-penalty .goal-area {
+  right: 0;
+
+  border-right: none;
+}
+
+/* =========================================
+   PENALTY SPOT
+========================================= */
+
+.penalty-spot {
+  position: absolute;
+
+  width: 9px;
+  height: 9px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+}
+
+.left-penalty .penalty-spot {
+  left: 65%;
+}
+
+.right-penalty .penalty-spot {
+  right: 65%;
+}
+
+/* =========================================
+   PENALTY ARC
+========================================= */
+
+.penalty-arc {
+  position: absolute;
+
+  width: 35%;
+
+  aspect-ratio: 1;
+
+  border: 3px solid white;
+
+  border-radius: 50%;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: -1;
+}
+
+.left-penalty .penalty-arc {
+  right: -20%;
+}
+
+.right-penalty .penalty-arc {
+  left: -20%;
+}
+
+/* =========================================
+   GOALS
+========================================= */
+
+.football-goal {
+  position: absolute;
+
+  top: 42%;
+
+  width: 5%;
+
+  height: 16%;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  border: 3px solid white;
+
+  z-index: 10;
+}
+
+.left-goal {
+  left: -5%;
+}
+
+.right-goal {
+  right: -5%;
+}
+
+.goal-net {
+  width: 100%;
+  height: 100%;
+
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 5px,
+      rgba(255, 255, 255, 0.5) 5px,
+      rgba(255, 255, 255, 0.5) 6px
+    );
+}
+
+/* =========================================
+   CORNERS
+========================================= */
+
+.corner {
+  position: absolute;
+
+  width: 4%;
+
+  aspect-ratio: 1;
+
+  border: 3px solid white;
+
+  border-radius: 50%;
+
+  z-index: 5;
+}
+
+.corner-tl {
+  top: -2%;
+
+  left: -2%;
+
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.corner-tr {
+  top: -2%;
+
+  right: -2%;
+
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.corner-bl {
+  bottom: -2%;
+
+  left: -2%;
+
+  border-right-color: transparent;
+  border-top-color: transparent;
+}
+
+.corner-br {
+  bottom: -2%;
+
+  right: -2%;
+
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+
+/* =========================================
+   GOAL LABEL
+========================================= */
+
+.field-label {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  z-index: 20;
+}
+
+.left-label {
+  left: -55px;
+}
+
+.right-label {
+  right: -55px;
+}
+
+/* =========================================
+   LENGTH DIMENSION
+========================================= */
+
+.field-length {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: -45px;
+
+  height: 20px;
+
+  border-top: 2px solid #555;
+
+  text-align: center;
+}
+
+.field-length span {
+  position: relative;
+
+  top: -10px;
+
+  background: #eeeeee;
+
+  padding: 0 12px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+/* =========================================
+   WIDTH DIMENSION
+========================================= */
+
+.field-width {
+  position: absolute;
+
+  right: -45px;
+
+  top: 0;
+  bottom: 0;
+
+  width: 25px;
+
+  border-right: 2px solid #555;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.field-width span {
+  background: #eeeeee;
+
+  padding: 5px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  writing-mode: vertical-rl;
+}
+
+/* =========================================
+   INFO CARDS
+========================================= */
+
+.football-info {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  margin-top: 25px;
+}
+
+.football-info-card {
+  min-width: 150px;
+
+  padding: 15px;
+
+  background: #f7f7f7;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  text-align: center;
+}
+
+.football-info-card span {
+  display: block;
+
+  font-size: 12px;
+
+  color: #777;
+
+  margin-bottom: 5px;
+}
+
+.football-info-card strong {
+  font-size: 17px;
+}
+
+/* =========================================
+   BOOKING
+========================================= */
+
+.football-booking {
+  margin-top: 25px;
+
+  padding: 18px 22px;
+
+  background: #f7f7f7;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.football-booking div {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.football-booking span {
+  font-size: 12px;
+
+  color: #777;
+}
+
+.football-booking strong {
+  margin-top: 4px;
+
+  font-size: 18px;
+}
+
+.football-booking button {
+  padding: 11px 25px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #1769aa;
+
+  color: white;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.football-booking button:hover {
+  background: #0d4f82;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+  .football-page {
+    padding: 15px;
+  }
+
+  .football-container {
+    padding: 55px 40px;
+  }
+
+  .half-label {
+    font-size: 16px;
+  }
+
+  .football-info {
+    gap: 12px;
+  }
+
+  .football-info-card {
+    min-width: 110px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   VERTICAL FIELD
+========================================= */
+
+@media (max-width: 600px) {
+
+  .football-page {
+    padding: 10px;
+  }
+
+  .football-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+  .football-header h2 {
+    font-size: 23px;
+  }
+
+  .football-container {
+    padding: 50px 35px;
+
+    min-height: 750px;
+
+    align-items: center;
+  }
+
+  /*
+      Desktop:
+
+      ┌──────────────────────────┐
+      │        FOOTBALL          │
+      │            │             │
+      └──────────────────────────┘
+
+      Mobile:
+
+          ┌──────┐
+          │      │
+          │      │
+          │      │
+          │      │
+          │      │
+          │      │
+          │      │
+          └──────┘
+  */
+
+  .football-field {
+    width: 100%;
+
+    aspect-ratio: 68 / 105;
+  }
+
+  /* =====================================
+     MOBILE HALVES
+  ====================================== */
+
+  .football-half {
+    width: 100%;
+
+    height: 50%;
+  }
+
+  .left-half {
+    left: 0;
+    top: 0;
+  }
+
+  .right-half {
+    right: auto;
+    bottom: 0;
+    top: auto;
+  }
+
+  /* =====================================
+     MOBILE HALFWAY LINE
+  ====================================== */
+
+  .halfway-line {
+    top: 50%;
+    bottom: auto;
+
+    left: 0;
+    right: 0;
+
+    width: auto;
+    height: 3px;
+
+    transform: translateY(-50%);
+  }
+
+  /* =====================================
+     MOBILE CENTER CIRCLE
+  ====================================== */
+
+  .center-circle {
+    width: 20%;
+
+    left: 50%;
+    top: 50%;
+  }
+
+  /* =====================================
+     MOBILE PENALTY AREAS
+  ====================================== */
+
+  .penalty-area {
+    top: auto;
+
+    width: 50%;
+
+    height: 16%;
+  }
+
+  .left-penalty {
+    left: 25%;
+    top: 0;
+
+    border-left: 3px solid white;
+    border-top: none;
+  }
+
+  .right-penalty {
+    right: 25%;
+    bottom: 0;
+
+    border-right: 3px solid white;
+    border-bottom: none;
+  }
+
+  /* =====================================
+     MOBILE GOAL AREAS
+  ====================================== */
+
+  .goal-area {
+    width: 50%;
+
+    height: 40%;
+
+    top: 0;
+  }
+
+  .left-penalty .goal-area {
+    left: 25%;
+
+    border-left: 3px solid white;
+    border-top: none;
+  }
+
+  .right-penalty .goal-area {
+    right: 25%;
+
+    top: auto;
+    bottom: 0;
+
+    border-right: 3px solid white;
+    border-bottom: none;
+  }
+
+  /* =====================================
+     MOBILE GOALS
+  ====================================== */
+
+  .football-goal {
+    top: auto;
+
+    left: 42%;
+
+    width: 16%;
+    height: 5%;
+  }
+
+  .left-goal {
+    top: -5%;
+    left: 42%;
+  }
+
+  .right-goal {
+    bottom: -5%;
+    right: 42%;
+  }
+
+  /* =====================================
+     MOBILE PENALTY SPOTS
+  ====================================== */
+
+  .left-penalty .penalty-spot {
+    left: 50%;
+    top: 65%;
+  }
+
+  .right-penalty .penalty-spot {
+    right: 50%;
+    top: 35%;
+  }
+
+  /* =====================================
+     MOBILE PENALTY ARC
+  ====================================== */
+
+  .penalty-arc {
+    width: 35%;
+  }
+
+  /* =====================================
+     MOBILE CORNERS
+  ====================================== */
+
+  .corner {
+    width: 4%;
+  }
+
+  /* =====================================
+     MOBILE LABELS
+  ====================================== */
+
+  .field-label {
+    font-size: 9px;
+
+    left: auto;
+    right: auto;
+
+    writing-mode: vertical-rl;
+  }
+
+  .left-label {
+    top: -35px;
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
+
+  .right-label {
+    top: auto;
+    bottom: -35px;
+
+    right: 50%;
+
+    transform: translateX(50%);
+  }
+
+  /* =====================================
+     MOBILE LENGTH
+  ====================================== */
+
+  .field-length {
+    left: -45px;
+    right: auto;
+
+    top: 0;
+    bottom: 0;
+
+    width: 25px;
+    height: auto;
+
+    border-top: none;
+
+    border-left: 2px solid #555;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+  }
+
+  .field-length span {
+    top: auto;
+
+    writing-mode: vertical-rl;
+
+    background: #eeeeee;
+  }
+
+  /* =====================================
+     MOBILE WIDTH
+  ====================================== */
+
+  .field-width {
+    right: 0;
+
+    top: -35px;
+    bottom: auto;
+
+    width: 100%;
+    height: 20px;
+
+    border-right: none;
+
+    border-top: 2px solid #555;
+
+    display: flex;
+
+    justify-content: center;
+  }
+
+  .field-width span {
+    writing-mode: horizontal-tb;
+
+    padding: 0 10px;
+  }
+
+  /* =====================================
+     INFO
+  ====================================== */
+
+  .football-info {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+  }
+
+  .football-info-card {
+    min-width: 0;
+  }
+
+  /* =====================================
+     BOOKING
+  ====================================== */
+
+  .football-booking {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 15px;
+  }
+
+  .football-booking button {
+    width: 100%;
+  }
+}
